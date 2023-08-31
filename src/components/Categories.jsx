@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function Categories({ setCategory }) {
-  const [categoryList, setCategoryList] = useState([]);
+export default function Categories({ setCategory, categoryList, setCategoryList }) {
+  
 
   useEffect(() => {
     axios

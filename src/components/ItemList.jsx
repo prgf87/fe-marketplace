@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SingleItem from "./SingleItem";
 import Categories from "./Categories";
-import ItemSellForm from "./ItemSellForm"
+import ItemSellForm from "./ItemSellForm";
 
 export default function ItemList() {
   const [itemList, setItemList] = useState([]);
+  const [categoryList, setCategoryList] = useState([]);
   const [category, setCategory] = useState();
 
   useEffect(() => {
@@ -28,13 +29,17 @@ export default function ItemList() {
 
   return (
     <div>
-      <Categories setCategory={setCategory} />
+      <Categories
+        setCategory={setCategory}
+        categoryList={categoryList}
+        setCategoryList={setCategoryList}
+      />
+      <ItemSellForm categoryList={categoryList} />
       <section className="item">
         {filteredList.map((item) => {
           return <SingleItem item={item} key={item.item_id} />;
         })}
       </section>
-      <ItemSellForm setItemList={setItemList}/>
     </div>
   );
 }
