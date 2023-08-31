@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SingleItem from "./SingleItem";
 import Categories from "./Categories";
+import ItemSellForm from "./ItemSellForm"
 
 export default function ItemList() {
   const [itemList, setItemList] = useState([]);
   const [category, setCategory] = useState();
+
   useEffect(() => {
     axios
       .get("https://nc-marketplace-sem-2.onrender.com/api/items")
@@ -32,6 +34,7 @@ export default function ItemList() {
           return <SingleItem item={item} key={item.item_id} />;
         })}
       </section>
+      <ItemSellForm setItemList={setItemList}/>
     </div>
   );
 }
