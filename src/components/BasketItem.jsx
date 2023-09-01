@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function BasketItem({ basket }) {
+export default function BasketItem({ item }) {
   return (
     <div className="grid border-2 border-black">
-      <p>{basket.item_name}</p>
-      <p>{basket.description}</p>
-      <p>{basket.item_name}</p>
-      <p>{basket.price}</p>
-      <img src={basket.img_url}></img>
+      <p>{item.item_name}</p>
+      <p>{item.description}</p>
+      <p>{item.item_name}</p>
+      <p>{item.price}</p>
+      <img src={item.img_url}></img>
     </div>
   );
 }

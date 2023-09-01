@@ -1,21 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { BasketContext } from "../utils/BasketContext";
-import { UserContext } from "../utils/UserContext";
 import BasketItem from "./BasketItem";
 
 export default function Basket() {
-  const [userBasket, setUserBasket] = useState(BasketContext);
-  const { user, setUser } = useContext(UserContext);
-  const { basket, setBasket } = useContext(BasketContext);
-  console.log(basket.items);
-
-  //useEffect(() => {}, []);
+  const { basket } = useContext(BasketContext);
 
   return (
-    <div>
-      heelo
-      {basket.items.map((basket) => {
-        return <BasketItem basket={basket} />;
+    <div className="grid grid-cols-4">
+      {basket.map((item) => {
+        console.log(item);
+        return (
+          <div>
+            <BasketItem item={item} />
+          </div>
+        );
       })}
     </div>
   );

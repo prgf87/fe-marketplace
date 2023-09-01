@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { BasketContext } from "../utils/BasketContext";
 
 export default function SingleItem({
-  setCurrBasket, 
+  setCurrBasket,
   item,
   item: { category_name, description, img_url, item_id, item_name, price },
 }) {
@@ -13,12 +13,12 @@ export default function SingleItem({
     setBasket((currBasket) => {
       return [...currBasket, item];
     });
-    console.log(basket)
-    setCurrBasket([...basket])
+    setCurrBasket([...basket, item]);
   };
   return (
     <div>
-      Single Item: {item_name}
+      {item_name}
+      <p>ID : {item_id}</p>
       <ol>
         <li>Category: {category_name}</li>
         <li>Description: {description}</li>
