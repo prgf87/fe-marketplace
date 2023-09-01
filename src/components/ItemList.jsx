@@ -35,7 +35,7 @@ export default function ItemList() {
         setCategoryList={setCategoryList}
       />
       <ItemSellForm categoryList={categoryList} />
-      <section className="item">
+      <section className="grid grid-cols-4 gap-5 mt-10">
         {filteredList.map((item) => {
           return <SingleItem item={item} key={item.item_id} />;
         })}
