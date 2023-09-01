@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function BasketItem({ basket }) {
-  console.log(basket);
   return (
     <div className="grid border-2 border-black">
       <p>{basket.item_name}</p>

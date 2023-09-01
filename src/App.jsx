@@ -19,7 +19,7 @@ function App() {
       <Header currUser={currUser} currBasket={currBasket}></Header>
 
       <Routes>
-        <Route path="/" element={<ItemList />}></Route>
+        <Route path="/" element={<ItemList setCurrBasket={setCurrBasket} />}></Route>
         <Route path="/profile" element={<UserProfile />}></Route>
         <Route path="/users" element={<UserList />}></Route>
         <Route path="/:username/basket" element={<Basket />}></Route>

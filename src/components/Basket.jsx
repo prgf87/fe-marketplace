@@ -9,7 +9,7 @@ export default function Basket() {
   const { basket, setBasket } = useContext(BasketContext);
   console.log(basket.items);
 
-  useEffect(() => {}, []);
+  //useEffect(() => {}, []);
 
   return (
     <div>

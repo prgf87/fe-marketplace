@@ -5,7 +5,7 @@ import SingleItem from "./SingleItem";
 import Categories from "./Categories";
 import ItemSellForm from "./ItemSellForm";
 
-export default function ItemList() {
+export default function ItemList({setCurrBasket}) {
   const [itemList, setItemList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [category, setCategory] = useState();
@@ -16,7 +16,7 @@ export default function ItemList() {
       .then(({ data }) => {
         setItemList(data.items);
       });
-  }, [category]);
+  }, []);
 
   function getFilteredList() {
     if (!category) {
@@ -37,7 +37,7 @@ export default function ItemList() {
       <ItemSellForm categoryList={categoryList} />
       <section className="grid grid-cols-4 gap-5 mt-10">
         {filteredList.map((item) => {
-          return <SingleItem item={item} key={item.item_id} />;
+          return <SingleItem item={item} key={item.item_id} setCurrBasket={setCurrBasket} />;
         })}
       </section>
     </div>

@@ -2,20 +2,20 @@ import React, { useContext } from "react";
 import { BasketContext } from "../utils/BasketContext";
 
 export default function SingleItem({
+  setCurrBasket, 
   item,
   item: { category_name, description, img_url, item_id, item_name, price },
 }) {
   const { basket, setBasket } = useContext(BasketContext);
 
-  const handleClick = (e, item) => {
+  const handleClick = (e) => {
     e.preventDefault();
     setBasket((currBasket) => {
       return [...currBasket, item];
     });
-    //add to basket context
-    //update UI
+    console.log(basket)
+    setCurrBasket([...basket])
   };
-  console.log(basket);
   return (
     <div>
       Single Item: {item_name}
@@ -26,10 +26,7 @@ export default function SingleItem({
       </ol>
       <img src={img_url} alt={item_name} />
       <button
-        onClick={(e) => {
-          console.log(e);
-          handleClick(e, item);
-        }}
+        onClick={handleClick}
         value={item}
         className="border-2 border-gray-800 px-8 py-2 rounded-lg"
       >

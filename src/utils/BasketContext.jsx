@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
 
-const defaultItems = {
-  items: [
+const defaultItems = [
     {
       item_id: 3,
       item_name: "1990s Gameboy",
@@ -18,8 +17,8 @@ const defaultItems = {
       price: 100000000,
       category_name: "Electronics",
     },
-  ],
-};
+  ];
+
 
 export const BasketContext = createContext();
 
