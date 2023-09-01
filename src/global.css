@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input,
+select,
+button {
+  box-shadow: 0px 1px 5px black;
+}
+
+button {
+  @apply border-2 border-gray-800 px-8 py-2 rounded-lg  my-4 hover:bg-gray-400;
+}

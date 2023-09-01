@@ -16,22 +16,23 @@ export default function SingleItem({
     setCurrBasket([...basket, item]);
   };
   return (
-    <div>
+    <div className="w-60 min-h-80 mx-auto border-spacing-2 border-4 p-4 text-sm">
       {item_name}
       <p>ID : {item_id}</p>
-      <ol>
+      <ol className="grid grid-flow-col">
         <li>Category: {category_name}</li>
         <li>Description: {description}</li>
         <li>Price: {price}</li>
       </ol>
-      <img src={img_url} alt={item_name} />
-      <button
-        onClick={handleClick}
-        value={item}
-        className="border-2 border-gray-800 px-8 py-2 rounded-lg"
-      >
-        Add to Basket
-      </button>
+      <img src={img_url} alt={item_name} className="w-full h-40" />
+      <span className="flex justify-center mt-8">
+        <button
+          onClick={handleClick}
+          value={item}
+        >
+          Add to Basket
+        </button>
+      </span>
     </div>
   );
 }

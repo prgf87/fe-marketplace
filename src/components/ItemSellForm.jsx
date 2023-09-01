@@ -37,8 +37,11 @@ export default function ItemSellForm({ categoryList }) {
   };
 
   return (
-    <>
-      <form className="ItemSellForm" onSubmit={handleSubmit}>
+    <section className="border-2 border-gray-400 max-w-4xl mx-auto">
+      <form className="grid grid-cols-3 gap-y-2 p-8" onSubmit={handleSubmit}>
+        <h1 className="col-span-3 text-xl">
+          Add a new item by using this form
+        </h1>
         <label htmlFor="item_name">Item name:</label>
         <input
           type="text"
@@ -47,6 +50,7 @@ export default function ItemSellForm({ categoryList }) {
           value={form.item_name}
           onChange={handleChange}
           required
+          className="col-span-2"
         ></input>
         <label htmlFor="description">Description:</label>
         <input
@@ -55,6 +59,7 @@ export default function ItemSellForm({ categoryList }) {
           name="description"
           value={form.description}
           onChange={handleChange}
+          className="col-span-2"
         ></input>
         <label htmlFor="img_url">Image URL:</label>
         <input
@@ -64,6 +69,7 @@ export default function ItemSellForm({ categoryList }) {
           value={form.img_url}
           onChange={handleChange}
           required
+          className="col-span-2"
         ></input>
         <label htmlFor="price">Price:</label>
         <input
@@ -73,6 +79,7 @@ export default function ItemSellForm({ categoryList }) {
           value={form.price}
           onChange={handleChange}
           required
+          className="col-span-2"
         ></input>
         <label htmlFor="category_name">Category name:</label>
 
@@ -81,6 +88,7 @@ export default function ItemSellForm({ categoryList }) {
           id="category_name"
           name="category_name"
           onChange={handleChange}
+          className="col-span-2"
         >
           {categoryList.map((item, i) => {
             form.category_name = item.category_name;
@@ -91,8 +99,10 @@ export default function ItemSellForm({ categoryList }) {
             );
           })}
         </select>
-        <button>Submit</button>
+        <span className="col-span-3 flex justify-center">
+          <button>Submit</button>
+        </span>
       </form>
-    </>
+    </section>
   );
 }

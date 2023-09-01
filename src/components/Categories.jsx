@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function Categories({ setCategory, categoryList, setCategoryList }) {
-  
-
+export default function Categories({
+  setCategory,
+  categoryList,
+  setCategoryList,
+}) {
   useEffect(() => {
     axios
       .get("https://nc-marketplace-sem-2.onrender.com/api/categories")
@@ -18,7 +20,7 @@ export default function Categories({ setCategory, categoryList, setCategoryList 
 
   return (
     <div>
-      <ol className="flex gap-x-4 justify-center">
+      <ol className="flex gap-x-4 justify-center text-xs">
         {categoryList.map((item) => {
           return (
             <li key={item.category_name}>

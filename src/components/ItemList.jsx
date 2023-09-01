@@ -5,7 +5,7 @@ import SingleItem from "./SingleItem";
 import Categories from "./Categories";
 import ItemSellForm from "./ItemSellForm";
 
-export default function ItemList({setCurrBasket}) {
+export default function ItemList({ setCurrBasket }) {
   const [itemList, setItemList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [category, setCategory] = useState();
@@ -28,16 +28,22 @@ export default function ItemList({setCurrBasket}) {
   var filteredList = useMemo(getFilteredList, [category, itemList]);
 
   return (
-    <div>
+    <div className="max-w-3xl mx-auto">
       <Categories
         setCategory={setCategory}
         categoryList={categoryList}
         setCategoryList={setCategoryList}
       />
       <ItemSellForm categoryList={categoryList} />
-      <section className="grid grid-cols-4 gap-5 mt-10">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
         {filteredList.map((item) => {
-          return <SingleItem item={item} key={item.item_id} setCurrBasket={setCurrBasket} />;
+          return (
+            <SingleItem
+              item={item}
+              key={item.item_id}
+              setCurrBasket={setCurrBasket}
+            />
+          );
         })}
       </section>
     </div>
